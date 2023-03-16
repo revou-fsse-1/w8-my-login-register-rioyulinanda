@@ -70,14 +70,15 @@ body {
   padding: 5px;
 }
 
-.submitbutton {
+#btnfield {
   padding-bottom: 20px;
 }
 
-.submit {
-  padding: 5px 40px;
+#btnfield button {
   background-color: black;
-  color: antiquewhite;
-  text-decoration: none;
+  color: white;
+  font-family: "Abel", sans-serif;
+  padding: 5px 30px;
   box-shadow: 0 8px 13px -8px black;
+  font-size: 15px;
 }

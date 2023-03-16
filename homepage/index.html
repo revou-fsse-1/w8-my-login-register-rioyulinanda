@@ -15,26 +15,29 @@
         <p>it is so good to see you again</p>
       </div>
       <form class="form1">
-        <input id="email" class="email" placeholder="email" />
-        <input id="password " class="password" placeholder="password" />
+        <label for="email"></label>
+        <input type="text" class="email" id="email" placeholder="email" />
+        <label for="password"></label>
+        <input
+          type="password"
+          class="password"
+          id="password"
+          placeholder="password"
+        />
+        <div id="errorMessage" style="display: none; color: black">
+          "user are not registered"
+        </div>
         <div class="signup-forgot">
           <a href="/signup/signup.html">don't have an account? </a>
           <a href="/forgotpassword/forgotpassword.html"
             >forgot your password?
           </a>
         </div>
-        <div class="submitbutton">
-          <a
-            href="#"
-            class="submit"
-            onclick="sign(); return
-        false
-        "
-          >
-            <span>sign in</span></a
-          >
+        <div id="btnfield">
+          <button type="button" id="signinBtn">sign in</button>
         </div>
       </form>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>

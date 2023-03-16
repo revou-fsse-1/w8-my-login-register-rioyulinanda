@@ -15,10 +15,27 @@
         <p>give us some of your information</p>
       </div>
       <form class="form1">
-        <input id="name" class="name" placeholder="name" />
-        <input id="email" class="email" placeholder="email" />
-        <input id="password" class="password" placeholder="password" />
-        <div class="submitbutton">
+        <label for="name"></label>
+        <input type="text" class="name" id="name" placeholder="name" />
+        <div id="nameError" style="display: none; color: black">
+          "name should begin with uppercase"
+        </div>
+        <label for="email"></label>
+        <input type="text" class="email" id="email" placeholder="email" />
+        <div id="emailError" style="display: none; color: black">
+          "email is invalid"
+        </div>
+        <label for="password"></label>
+        <input
+          type="password"
+          class="password"
+          id="password"
+          placeholder="password"
+        />
+        <div id="passwordError" style="display: none; color: black">
+          "should contain 1 uppercase, 1 lowercase, and 1 number"
+        </div>
+        <div id="submitbutton">
           <a
             href="#"
             class="submit"
@@ -36,5 +53,6 @@
         </div>
       </form>
     </div>
+    <script src="signup.js"></script>
   </body>
 </html>

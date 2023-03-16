@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD Application</title>
+  </head>
+  <body>
+    <h1>CRUD Application</h1>
+    <form class="dataform">
+      <fieldset class="datafield">
+        <legend>add new data:</legend>
+        <label for="name">name:</label>
+        <input type="text" id="name" name="name" />
+        <br />
+        <label for="gender">gender:</label>
+        <input type="text" id="gender" name="gender" />
+        <br />
+        <label for="email">email:</label>
+        <input type="text" id="email" name="email" />
+        <br />
+        <button id="add">submit data</button>
+        <button id="add">update data</button>
+      </fieldset>
+    </form>
+    <hr />
+    <table>
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>gender</th>
+          <th>email</th>
+        </tr>
+      </thead>
+      <tbody id="items"></tbody>
+    </table>
+    <script src="crud.js"></script>
+  </body>
+</html>
