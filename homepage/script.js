@@ -15,7 +15,7 @@ button.addEventListener("click", function (e) {
 
   if (user) {
     // User is authenticated, redirect to homepage
-    window.location.href = "/crud-application/crudapplication.html";
+    window.location.href = "/crud-application/crud.html";
   } else {
     // User is not authenticated, show error message
     const errorMessage = document.getElementById("errorMessage");

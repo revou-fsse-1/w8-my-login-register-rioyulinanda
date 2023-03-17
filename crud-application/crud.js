@@ -1,112 +1,72 @@
-const baseUrl = "http://localhost:3000/users";
+const getLocalStorage = localStorage.getItem("email");
 
-const form = document.querySelector(".submitForm");
-const table = document.querySelector("#crudtable");
-const tbody = document.querySelector("#items");
-
-let users = [];
-
-function renderUsers() {
-  tbody.innerHTML = "";
-  for (let user of users) {
-    const tr = document.createElement("tr");
-    tr.innerHTML = `
-      <td>${user.name}</td>
-      <td>${user.gender}</td>
-      <td>${user.email}</td>
-    `;
-    const tdEdit = document.createElement("td");
-    const editButton = document.createElement("button");
-    editButton.innerText = "Edit";
-    editButton.addEventListener("click", () => {
-      form.querySelector(".name").value = user.name;
-      form.querySelector(".gender").value = user.gender;
-      form.querySelector(".email").value = user.email;
-      form.querySelector(".button1 button").style.display = "none";
-      form.querySelector(".button2 button").style.display = "block";
-      form.querySelector(".button2 button").dataset.id = user.id;
-    });
-    tdEdit.appendChild(editButton);
-
-    const tdDelete = document.createElement("td");
-    const deleteButton = document.createElement("button");
-    deleteButton.innerText = "Delete";
-    deleteButton.addEventListener("click", async () => {
-      try {
-        await fetch(`${baseUrl}/${user.id}`, {
-          method: "DELETE",
-        });
-        users = users.filter((u) => u.id !== user.id);
-        renderUsers();
-      } catch (error) {
-        console.error(error);
-        alert("An error occurred");
-      }
-    });
-    tdDelete.appendChild(deleteButton);
-
-    tr.appendChild(tdEdit);
-    tr.appendChild(tdDelete);
-
-    tbody.appendChild(tr);
-  }
+if (getLocalStorage !== null) {
+  const collection = document.getElementsByClassName("name-data");
+  collection[0].innerHTML = `Hello ${getLocalStorage}!`;
 }
 
-async function handleSubmit(event) {
-  event.preventDefault();
-  const name = form.querySelector(".name").value.trim();
-  const gender = form.querySelector(".gender").value.trim();
-  const email = form.querySelector(".email").value.trim();
-  if (!name || !gender || !email) {
-    alert("Please enter all fields");
-    return;
-  }
-  try {
-    const response = await fetch(baseUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name, gender, email }),
-    });
-    const newUser = await response.json();
-    users.push(newUser);
-    renderUsers();
-    form.reset();
-  } catch (error) {
-    console.error(error);
-    alert("An error occurred");
-  }
+// data dummy
+var data = [
+  { name: "victor", gender: "male", email: "victor@example.com" },
+  { name: "wilson", gender: "male", email: "wilson@example.com" },
+  { name: "xierra", gender: "female", email: "xierra@example.com" },
+];
+
+// menampilkan data ke dalam tabel
+function showData() {
+  var tableBody = document.querySelector("#dataTable tbody");
+  tableBody.innerHTML = "";
+  var rows = data.map(function (item, i) {
+    var row = "<tr>";
+    row += "<td>" + item.name + "</td>";
+    row += "<td>" + item.gender + "</td>";
+    row += "<td>" + item.email + "</td>";
+    row +=
+      "<td><button class='edit' type='button' onclick='editData(" +
+      i +
+      ")'>edit</button>";
+    row +=
+      "<button class='delete' type='button' onclick='deleteData(" +
+      i +
+      ")'>delete</button></td>";
+    row += "</tr>";
+    return row;
+  });
+  tableBody.innerHTML = rows.join("");
 }
 
-async function handleUpdate(event) {
-  event.preventDefault();
-  const name = form.querySelector(".name").value.trim();
-  const gender = form.querySelector(".gender").value.trim();
-  const email = form.querySelector(".email").value.trim();
-  if (!name || !gender || !email) {
-    alert("Please enter all fields");
-    return;
-  }
-  const id = event.target.dataset.id;
-  try {
-    const response = await fetch(`${baseUrl}/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name, gender, email }),
-    });
-    const updatedUser = await response.json();
-    const index = users.findIndex((u) => u.id === updatedUser.id);
-    users[index] = updatedUser;
-    renderUsers();
-    form.reset();
-    form.querySelector(".button1 button").style.display = "block";
-    form.querySelector(".button2 button").style.display = "none";
-    form.querySelector(".button2 button").dataset.id = "";
-  } catch (error) {
-    console.error(error);
-    alert("An error occurred");
-  }
+// menambah data ke dalam objek data
+function addData() {
+  var name = document.querySelector("#inputName").value;
+  var gender = document.querySelector("#inputGender").value;
+  var email = document.querySelector("#inputEmail").value;
+  data.push({ name: name, gender: gender, email: email });
+  showData();
 }
+
+// mengedit data dalam objek data
+function editData(index) {
+  var name = prompt("new name:", data[index].name);
+  var age = prompt("new gender:", data[index].gender);
+  var email = prompt("new email:", data[index].email);
+  data = data.map(function (item, i) {
+    if (i === index) {
+      return { name: name, gender: gender, email: email };
+    }
+    return item;
+  });
+  showData();
+}
+
+// menghapus data dari objek data
+function deleteData(index) {
+  data = data.filter(function (item, i) {
+    return i !== index;
+  });
+  showData();
+}
+
+// menampilkan data pada saat halaman web dimuat
+window.onload = function () {
+  showData();
+};

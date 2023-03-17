@@ -4,37 +4,42 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CRUD Application</title>
-    <link rel="stylesheet" href="/crud-application/style.css" />
+    <link
+      rel="stylesheet"
+      href="path/to/font-awesome/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Ubuntu"
+      rel="stylesheet"
+    />
+    <title>mebel - customer database</title>
   </head>
   <body>
-    <div class="content">
-      <h2>CRUD Application</h2>
-      <div class="submitForm">
-        <label for="name"></label>
-        <input type="text" class="name" id="name" placeholder="name" />
-        <label for="gender"></label>
-        <input type="text" class="gender" id="gender" placeholder="gender" />
-        <label for="email"></label>
-        <input type="text" class="email" id="email" placeholder="email" />
-      </div>
-      <div class="buttonField">
-        <div class="button1">
-          <button type="button" id="Btn">submit data</button>
-        </div>
-        <div class="button2">
-          <button type="button" id="Btn">update data</button>
-        </div>
-      </div>
-      <table class="table" id="crudtable">
+    <header>
+      <h1 class="name-data">crud application</h1>
+    </header>
+    <form>
+      <h1>please submit your data!</h1>
+      <input type="text" id="inputName" placeholder="name" />
+      <input type="text" id="inputGender" placeholder="gender" />
+      <input type="text" id="inputEmail" placeholder="email" />
+      <button class="submit-data" type="button" onclick="addData()">
+        submit data
+      </button>
+    </form>
+
+    <div class="container">
+      <table id="dataTable">
         <thead>
           <tr>
             <th>name</th>
             <th>gender</th>
             <th>email</th>
+            <th>action</th>
           </tr>
         </thead>
-        <tbody id="items"></tbody>
+        <tbody></tbody>
       </table>
     </div>
     <script src="crud.js"></script>

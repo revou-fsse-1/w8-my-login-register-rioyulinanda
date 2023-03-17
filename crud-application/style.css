@@ -1,83 +1,95 @@
 @import url("https://fonts.googleapis.com/css2?family=Abel&display=swap");
 
 body {
-  margin: 0;
-  background-image: url(/assets/backgroundimage.jpg);
+  font-family: "Abel", sans-serif;
+}
+
+header {
+  text-align: center;
+  background-image: url(/assets/header1.jpg);
   background-size: 100%;
-  font-family: "Abel", sans-serif;
-}
-
-.content {
-  background-color: white;
-  margin: 100px 400px;
+  background-position: center;
+  padding: 20px;
+  margin-bottom: 10px;
+  color: white;
   box-shadow: 0 8px 13px -8px black;
 }
 
-h2 {
-  text-align: center;
-}
-
-.submitForm {
+form {
   display: flex;
-  align-items: center;
   justify-content: center;
+  padding: 50px;
   gap: 20px;
-  padding-bottom: 10px;
-}
-
-.name {
   border: solid;
-  font-family: "Abel", sans-serif;
-}
-
-.gender {
-  border: solid;
-  font-family: "Abel", sans-serif;
-}
-
-.email {
-  border: solid;
-  font-family: "Abel", sans-serif;
-}
-
-.table {
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  padding-top: 20px;
-  gap: 10px;
-}
-
-thead {
-  display: flex;
-  justify-content: center;
-}
-
-tr,
-th {
-  padding: 5px 30px;
-}
-
-th {
-  text-align: left;
-  background-color: black;
-  color: white;
-  font-weight: 100;
-}
-
-.buttonField {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  padding-top: 10px;
-}
-
-#Btn {
-  background-color: black;
-  color: white;
-  font-family: "Abel", sans-serif;
-  padding: 5px 30px;
+  margin: 100px;
+  background-color: whitesmoke;
   box-shadow: 0 8px 13px -8px black;
-  font-size: 15px;
+}
+
+form h1 {
+  font-size: 20px;
+}
+
+input[type="text"] {
+  font-size: 16px;
+  padding: 10px;
+  width: 10%;
+  border: solid black;
+  font-family: "Abel", sans-serif;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: grey;
+}
+
+.submit-data {
+  background-color: black;
+  color: white;
+  width: 10%;
+  font-size: 20px;
+}
+
+.delete {
+  background-color: black;
+  color: white;
+}
+
+.edit {
+  background-color: white;
+  color: black;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  background-color: whitesmoke;
+}
+
+table {
+  width: 100%;
+  box-shadow: 0 8px 13px -8px black;
+  align-items: center;
+  text-align: center;
+}
+
+th {
+  padding: 20px;
+}
+
+table,
+th,
+td {
+  border: solid;
+  border-collapse: collapse;
+}
+th,
+td {
+  padding: 10px;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  font-family: "Abel", sans-serif;
 }
