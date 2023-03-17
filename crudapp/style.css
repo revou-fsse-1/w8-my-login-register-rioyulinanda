@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Abel&display=swap");
+
+body {
+  font-family: "Abel", sans-serif;
+}
+
+header {
+  text-align: center;
+  background-image: url(/assets/header1.jpg);
+  background-size: 100%;
+  background-position: center;
+  padding: 20px;
+  margin-bottom: 10px;
+  color: white;
+  box-shadow: 0 8px 13px -8px black;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+  gap: 20px;
+  border: solid;
+  margin: 100px;
+  background-color: whitesmoke;
+  box-shadow: 0 8px 13px -8px black;
+}
+
+form h1 {
+  font-size: 20px;
+}
+
+input[type="text"] {
+  font-size: 16px;
+  padding: 10px;
+  width: 10%;
+  border: solid black;
+  font-family: "Abel", sans-serif;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: grey;
+}
+
+.submit-data {
+  background-color: black;
+  color: white;
+  width: 10%;
+  font-size: 20px;
+}
+
+.delete {
+  background-color: black;
+  color: white;
+}
+
+.edit {
+  background-color: white;
+  color: black;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  background-color: whitesmoke;
+}
+
+table {
+  width: 100%;
+  box-shadow: 0 8px 13px -8px black;
+  align-items: center;
+  text-align: center;
+}
+
+th {
+  padding: 20px;
+}
+
+table,
+th,
+td {
+  border: solid;
+  border-collapse: collapse;
+}
+th,
+td {
+  padding: 10px;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  font-family: "Abel", sans-serif;
+}
