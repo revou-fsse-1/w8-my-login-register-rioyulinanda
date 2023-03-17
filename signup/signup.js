@@ -80,7 +80,7 @@ submitBtn.addEventListener("click", function (e) {
 
   userCollection.push(user);
   localStorage.setItem("users", JSON.stringify(userCollection));
-  window.location.href = "/homepage/index.html";
+  window.location.href = "/index.html";
 });
 
 function isValidEmail(email) {
