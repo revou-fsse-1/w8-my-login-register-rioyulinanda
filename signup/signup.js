@@ -41,14 +41,59 @@ passwordInput.addEventListener("input", function (e) {
 
 // const userCollection = [];
 const userCollection = JSON.parse(localStorage.getItem("users")) || [];
+
 submitBtn.addEventListener("click", function (e) {
   e.preventDefault();
+  const name = nameInput.value.trim();
+  const email = emailInput.value.trim();
+  const password = passwordInput.value.trim();
+
+  if (!name || !email || !password) {
+    alert("Please fill in all fields");
+    return;
+  }
+
+  if (!isValidEmail(email)) {
+    alert("Please enter a valid email address");
+    return;
+  }
+
+  if (!isValidPassword(password)) {
+    alert(
+      "Please enter a password with at least 8 characters and at least one uppercase letter, one lowercase letter, and one number"
+    );
+    return;
+  }
+
+  if (!isValidName(name)) {
+    alert(
+      "Please enter a name with at least 2 characters, starting with an uppercase letter and only using letters"
+    );
+    return;
+  }
+
   const user = {
-    name: nameInput.value,
-    email: emailInput.value,
-    password: passwordInput.value,
+    name: name,
+    email: email,
+    password: password,
   };
+
   userCollection.push(user);
   localStorage.setItem("users", JSON.stringify(userCollection));
   window.location.href = "/homepage/index.html";
 });
+
+function isValidEmail(email) {
+  const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,})+$/;
+  return emailRegex.test(email);
+}
+
+function isValidPassword(password) {
+  const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}$/;
+  return passwordRegex.test(password);
+}
+
+function isValidName(name) {
+  const nameRegex = /^[A-Z][a-zA-Z]{1,}$/;
+  return nameRegex.test(name);
+}
