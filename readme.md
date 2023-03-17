@@ -11,6 +11,7 @@ I choose to use my previous project assignment, which is "mebel" as the theme of
 
 ## Links
 
+- Assignment: [rioyulinanda](https://mebel-database.netlify.app/)
 - Website: [rioyulinanda](https://w1-my-personal-website-rioyulinanda.netlify.app/)
 - LinkedIn: [rioyulinanda](https://id.linkedin.com/in/rio-y-kurniawan-55293172)
 - GitHub: [rioyulinanda](https://github.com/rioyulinanda)
